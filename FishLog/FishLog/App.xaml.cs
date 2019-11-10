@@ -13,8 +13,8 @@ namespace FishLog
         {
             InitializeComponent();
 
-
-            MainPage = new MainPage();
+            var initialView = new Home();
+            MainPage = new MainPage(initialView);
         }
 
         protected override void OnStart()

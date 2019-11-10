@@ -6,7 +6,8 @@ namespace FishLog.Models
 {
     public enum MenuItemType
     {
-        Browse,
+        Home,
+        Log,
         About
     }
     public class HomeMenuItem

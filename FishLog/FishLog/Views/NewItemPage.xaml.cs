@@ -11,16 +11,25 @@ namespace FishLog.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class NewItemPage : ContentPage
     {
-        public Item Item { get; set; }
+        public Fish Fish { get; set; }
 
         public NewItemPage()
         {
             InitializeComponent();
 
-            Item = new Item
+            Fish = new Fish
             {
-                Text = "Item name",
-                Description = "This is an item description."
+                Id = Guid.NewGuid().ToString(),
+                Species = "",
+                Weight = 0,
+                Length = 0,
+                DateCaught = DateTime.Now.Date,
+                TimeCaught = DateTime.Now.TimeOfDay,
+                Bait = "",
+                AirTemp = 0,
+                WaterTemp = 0,
+                Location = "",
+                Depth = 0
             };
 
             BindingContext = this;
@@ -28,8 +37,9 @@ namespace FishLog.Views
 
         async void Save_Clicked(object sender, EventArgs e)
         {
-            MessagingCenter.Send(this, "AddItem", Item);
+            MessagingCenter.Send(this, "AddItem", Fish);
             await Navigation.PopModalAsync();
+
         }
 
         async void Cancel_Clicked(object sender, EventArgs e)

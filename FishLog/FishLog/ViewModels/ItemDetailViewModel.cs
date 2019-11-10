@@ -1,16 +1,19 @@
 ﻿using System;
 
 using FishLog.Models;
+using FishLog.Views;
+using Xamarin.Forms;
 
 namespace FishLog.ViewModels
 {
     public class ItemDetailViewModel : BaseViewModel
     {
-        public Item Item { get; set; }
-        public ItemDetailViewModel(Item item = null)
+        public Fish Fish { get; set; }
+
+        public ItemDetailViewModel(Fish fish = null)
         {
-            Title = item?.Text;
-            Item = item;
+            Title = fish?.Species;
+            Fish = fish;
         }
     }
 }

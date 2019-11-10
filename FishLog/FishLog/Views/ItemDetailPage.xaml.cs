@@ -24,14 +24,28 @@ namespace FishLog.Views
         {
             InitializeComponent();
 
-            var item = new Item
+            var item = new Fish
             {
-                Text = "Item 1",
-                Description = "This is an item description."
+                Id = Guid.NewGuid().ToString(),
+                Species = "Species name",
+                Weight = 20.0,
+                Length = 36,
+                DateCaught = DateTime.Now.Date,
+                TimeCaught = DateTime.Now.TimeOfDay,
+                Bait = "FireTiger Rapala",
+                AirTemp = 70,
+                WaterTemp = 63,
+                Location = "Bass Lake",
+                Depth = 13
             };
 
             viewModel = new ItemDetailViewModel(item);
             BindingContext = viewModel;
+        }
+
+        async void Edit_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new NavigationPage(new EditPage(viewModel.Fish)));
         }
     }
 }

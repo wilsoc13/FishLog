@@ -3,10 +3,42 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FishLog.Views.ItemDetailPage"
              Title="{Binding Title}">
-    <StackLayout Spacing="20" Padding="15">
-        <Label Text="Text:" FontSize="Medium" />
-        <Label Text="{Binding Item.Text}" FontSize="Small"/>
-        <Label Text="Description:" FontSize="Medium" />
-        <Label Text="{Binding Item.Description}" FontSize="Small"/>
-    </StackLayout>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Edit" Clicked="Edit_Clicked">
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="UWP" Value="edit.png"/>
+                </OnPlatform>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Spacing="20" Padding="15">
+                <Label Text="ID:" FontSize="Medium" />
+                <Label Text="{Binding Fish.Id}" FontSize="Small"/>
+                <Label Text="Species:" FontSize="Medium" />
+                <Label Text="{Binding Fish.Species}" FontSize="Small"/>
+                <Label Text="Date Caught:" FontSize="Medium" />
+                <Label Text="{Binding Fish.DateCaught}" FontSize="Small"/>
+                <Label Text="Time Caught:" FontSize="Medium" />
+                <Label Text="{Binding Fish.TimeCaught}" FontSize="Small"/>
+                <Label Text="Location:" FontSize="Medium" />
+                <Label Text="{Binding Fish.Location}" FontSize="Small"/>
+                <Label Text="Weight:" FontSize="Medium" />
+                <Label Text="{Binding Fish.Weight}" FontSize="Small"/>
+                <Label Text="Length:" FontSize="Medium" />
+                <Label Text="{Binding Fish.Length}" FontSize="Small"/>
+                <Label Text="Bait Used:" FontSize="Medium" />
+                <Label Text="{Binding Fish.Bait}" FontSize="Small"/>
+                <Label Text="Water Temp:" FontSize="Medium" />
+                <Label Text="{Binding Fish.WaterTemp}" FontSize="Small"/>
+                <Label Text="Air Temp:" FontSize="Medium" />
+                <Label Text="{Binding Fish.AirTemp}" FontSize="Small"/>
+                <Label Text="Depth:" FontSize="Medium" />
+                <Label Text="{Binding Fish.Depth}" FontSize="Small"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
 </ContentPage>

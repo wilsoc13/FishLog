@@ -27,13 +27,13 @@ namespace FishLog.Views
 
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
-            var item = args.SelectedItem as Item;
-            if (item == null)
+            var fish = args.SelectedItem as Fish;
+            if (fish == null)
                 return;
 
-            await Navigation.PushAsync(new ItemDetailPage(new ItemDetailViewModel(item)));
+            await Navigation.PushAsync(new ItemDetailPage(new ItemDetailViewModel(fish)));
 
-            // Manually deselect item.
+            // Manually deselect fish.
             ItemsListView.SelectedItem = null;
         }
 

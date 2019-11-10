@@ -11,13 +11,13 @@ namespace FishLog.Views
     public partial class MainPage : MasterDetailPage
     {
         Dictionary<int, NavigationPage> MenuPages = new Dictionary<int, NavigationPage>();
-        public MainPage()
+        public MainPage(Page detailPage)
         {
             InitializeComponent();
 
-            MasterBehavior = MasterBehavior.Popover;
+            Detail = new NavigationPage(detailPage);
 
-            MenuPages.Add((int)MenuItemType.Browse, (NavigationPage)Detail);
+            MasterBehavior = MasterBehavior.Popover;
         }
 
         public async Task NavigateFromMenu(int id)
@@ -26,7 +26,10 @@ namespace FishLog.Views
             {
                 switch (id)
                 {
-                    case (int)MenuItemType.Browse:
+                    case (int)MenuItemType.Home:
+                        MenuPages.Add(id, new NavigationPage(new Home()));
+                        break;
+                    case (int)MenuItemType.Log:
                         MenuPages.Add(id, new NavigationPage(new ItemsPage()));
                         break;
                     case (int)MenuItemType.About:
